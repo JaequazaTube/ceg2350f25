@@ -14,23 +14,23 @@ ssh -i "C:\Users\Jaequ\Downloads\labsuser.pem" ubuntu@35.168.72.154
 ## Part 2 Answers
 
 1. `chmod u+r bubbles.txt`
-    - Means: 
-    - Assessment:
+    - Means: Grants "user" read access by altering the set privileges on bubbles.txt using chmod, without negating or replacing any other file permissions.
+    - Assessment: Good! It allows the main owner to access the contents of bubbles.txt if they could not already. Even better, it does not modify or change any authority from groups, people, or others, allowing them to keep whatever permissions they had. 
 2. `chmod u=rw,g-w,o-x banana.cabana`
-    - Means: 
-    - Assessment:
+    - Means: Gives the user set read and write permissions, groups access to the write clearance, and others only have access to the execute command to the banana.cabana file.
+    - Assessment: Great when trying to maintain security and tighten down permissions. It gives the owner the right to access the file's contents and allows them to modify whatever is inside. Everyone else in a group, although able to edit, cannot view the changes. This grants a subtle wave of security to whatever file or document you are working on.
 3. `chmod a=w snow.md`
-    - Means: 
-    - Assessment:
+    - Means: Chmod effectively gives only the write permission to "all" potential users, groups, and others in response to snow.md file permissions.
+    - Assessment: Bad. Nobody can read or execute snow.md, effectively leaving its modified versions hidden from everyone else involved. How would you be able to save, monitor, and fix changes in your file if not a single person has the command privileges to do so? Until altered, snow.md remains isolated.
 4. `chmod 751 program`
-    - Means: 
-    - Assessment:
+    - Means: This grants an ever stronger protection than the banana.Cabana question, creating a "hierarchical" system that gets stricter the lower you get. Users can read, write, and execute, groups can read and execute, and others can only execute.
+    - Assessment: For ensuring a safe and efficient working environment for the user, limiting but allowing specific permissions creates a genuine and somewhat private workspace. This ensures that even though others can access and utilize your program, only you have permission to change it.
 5. `chmod -R ug+w share`
-    - Means: 
-    - Assessment:
+    - Means: Recursively grants and changes write permissions to users and groups inside the share directory. That command allows swift modifications for files within the share folder.
+    - Assessment: If for a shared project collaboration between users and groups, this command is the perfect way to create an equal working environment. Others can edit within this "share" directory and help with whatever process needs to be done. However, allowing too much freedom can potentially be troublesome if others are allowed to modify the area.
 
 ## Part 3 Answers
-
+(Linux)
 1. Command to create new user: 
 2. Path to new user's home directory: 
 3. Evaluate if `ubuntu` can add files to new user's home directory:
