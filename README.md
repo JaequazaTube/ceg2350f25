@@ -4,7 +4,7 @@
 - Email: rodriguez.192@wright.edu
 ## Part 1 Answers
 
-Full / absolute path to your private key file: 
+Full / absolute path to your private key file: C:\Users\Jaequ\Downloads\labsuser.pem 
 
 Command to SSH to AWS instance:
 ```
@@ -31,50 +31,53 @@ ssh -i "C:\Users\Jaequ\Downloads\labsuser.pem" ubuntu@35.168.72.154
 
 ## Part 3 Answers
 (Linux)
-1. Command to create new user: sudo adduser bob
-2. Path to new user's home directory: /home/bob
+1. Command to create new user: sudo adduser JRodriguez
+2. Path to new user's home directory: /home/JRodriguez
 3. Evaluate if `ubuntu` can add files to new user's home directory: No, ubuntu does not have any permissions yet
-4. Command to switch to new user: su bob
-5. Command(s) to go to new user's home directory: cd /home/bob
+4. Command to switch to new user: su JRodriguez
+5. Command(s) to go to new user's home directory: cd /home/JRodriguez
 6. Evaluate if new user can add files to user's home directory: No, access has not been modified 
 7. Command to return to `ubuntu` user: su ubuntu
 8. Command to return to `ubuntu` home directory: exit
 
 ## Part 4 Answers
 
-1. Command(s) to create group named `squad` and add members:
-2. Command(s) to add `ubuntu` & user to group `squad`:
-3. Command(s) to allow `squad` to view the `ubuntu` user's home directory contents:
-4. Command(s) to modify `share` to have group ownership of `squad`:
-5. Describe your tests and commands with the user account:
-6. Describe the full set of permissions / settings that enable the user to make edits:
+1. Command(s) to create group named `squad` and add members: sudo groupadd squad
+2. Command(s) to add `ubuntu` & user to group `squad`: sudo usermod -aG squad ubuntu
+                                                       sudo usermod -aG squad JRodriguez
+3. Command(s) to allow `squad` to view the `ubuntu` user's home directory contents: sudo chmod 750 /home/ubuntu
+                                                                                    sudo chgrp squad /home/ubunt
+4. Command(s) to modify `share` to have group ownership of `squad`: sudo chmod squad /home/ubuntu/share
+5. Describe your tests and commands with the user account: Logged in as "JRodriguez" and cd /home/ubuntu/share
+6. Describe the full set of permissions / settings that enable the user to make edits: Because permissiosn are set to "squad", which ubuntu has access to and owns, changes can be made accordingly
 
 ## Part 5 Answers
 
 For each, write the command used or answer the question posed.
 
-1. Command(s) to make file using `sudo`: 
-2. Command(s) to make file with `root`:
-3. Describe / compare ownership and permissions of files:
+1. Command(s) to make file using `sudo`: sudo touch /home/ubuntu/share/madewithsudofile.txt
+2. Command(s) to make file with `root`: touch /home/ubuntu/share/madewithrootfile.txt
+3. Describe / compare ownership and permissions of files: Root ownership allows permissions to be changed
 4. Which account can do what actions? (Type Y or N in columns)
 
 Contents inside of `share`
 | Account   | Can View  | Can Edit  | Can Change Permissions    |
 | ---       | ---       | ---       | ---                       |
-| `root`    |           |           |                           |
-| `ubuntu`  |           |           |                           |
-| `BOB`     |           |           |                           |
+| `root`    |    Y       |    Y       |     Y                      |
+| `ubuntu`  |    Y       |    Y       |     Y                      |
+| `JRodriguez`     |    Y      |    Y       |     N                      |
 
 `madewithsudo.txt`
 | Account   | Can View  | Can Edit  | Can Change Permissions    |
 | ---       | ---       | ---       | ---                       |
-| `root`    |           |           |                           |
-| `ubuntu`  |           |           |                           |
-| `BOB`     |           |           |                           |
+| `root`    |     Y      |    Y       |        Y                   |
+| `ubuntu`  |     Y      |    Y       |        N                   |
+| `JRodriguez`     |     Y      |    N       |        N                   |
 
-5. Command(s) to modify permissions:
-6. How to give user account `sudo`:
+5. Command(s) to modify permissions: sudo chmod 770
+6. How to give user account `sudo`: sudo usermod
 
 ## Citations
+Microsoft Help
 
 To add citations, provide the site and a summary of what it assisted you with.  If generative AI was used, include which generative AI system was used and what prompt(s) you fed it.
