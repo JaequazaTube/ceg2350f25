@@ -80,4 +80,4 @@ Contents inside of `share`
 ## Citations
 GeeksforGeeks/Linux Handbook - Listed set Linux commands for file and directory permissions
 Copilot - Answered somewhat straightforward questions and directed me to other sites, mainly assisting with seeking out basic definitions of specific commands.
-
+ChatGPT - Fed prompts for more detailed answers like "What is sudo in Linux" and "Summarize what Ubuntu is in Linux"
