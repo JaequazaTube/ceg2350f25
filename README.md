@@ -31,14 +31,14 @@ ssh -i "C:\Users\Jaequ\Downloads\labsuser.pem" ubuntu@35.168.72.154
 
 ## Part 3 Answers
 (Linux)
-1. Command to create new user: 
-2. Path to new user's home directory: 
-3. Evaluate if `ubuntu` can add files to new user's home directory:
-4. Command to switch to new user:
-5. Command(s) to go to new user's home directory:
-6. Evaluate if new user can add files to user's home directory:
-7. Command to return to `ubuntu` user:
-8. Command to return to `ubuntu` home directory: 
+1. Command to create new user: sudo adduser bob
+2. Path to new user's home directory: /home/bob
+3. Evaluate if `ubuntu` can add files to new user's home directory: No, ubuntu does not have any permissions yet
+4. Command to switch to new user: su bob
+5. Command(s) to go to new user's home directory: cd /home/bob
+6. Evaluate if new user can add files to user's home directory: No, access has not been modified 
+7. Command to return to `ubuntu` user: su ubuntu
+8. Command to return to `ubuntu` home directory: exit
 
 ## Part 4 Answers
 
